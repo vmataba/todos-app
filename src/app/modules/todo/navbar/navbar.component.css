@@ -1,0 +1,12 @@
+.simple-navbar{
+  background-color: #1e88e5;
+  margin: 0;
+  color: white;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 100vw;
+}
+.navbar-brand{
+  color: white;
+  font-weight: bold;
+}

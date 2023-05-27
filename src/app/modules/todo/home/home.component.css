@@ -1,0 +1,29 @@
+.container-fluid {
+  padding: 0;
+  overflow: hidden;
+}
+
+.labels {
+  margin: 1% 0 0 50px;
+}
+
+.listings {
+  margin-top: 1%;
+}
+
+.welcome-note{
+  margin: 7px 0 0 30px ;
+}
+
+@media screen and (max-width: 760px) {
+  .labels {
+    margin: 0;
+    width: 100%;
+  }
+  .listings {
+    margin-top: 0;
+  }
+  .welcome-note{
+    margin: 0;
+  }
+}

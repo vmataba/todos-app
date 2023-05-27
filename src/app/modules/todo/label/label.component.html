@@ -1,0 +1,24 @@
+<div class="label" (mouseout)="deactivate()">
+  <div class="main" *ngIf="!allowUpdate">
+    <span class="title" [class.text-success]="(activeLabel$ | async)?.id == label?.id" (click)="toggleActiveness(label?.id)">
+      {{label?.name}}
+    </span>
+    <span class="actions">
+    <a class="btn-delete" (click)="deleteLabel(label?.id)">
+        <i class="bi bi-trash"></i>
+    </a>
+    &nbsp;
+    <a class="btn-update" (click)="update()">
+        <i class="bi bi-pencil"></i>
+    </a>
+  </span>
+  </div>
+  <ng-container *ngIf="allowUpdate">
+    <app-label-form [label]="label"></app-label-form>
+  </ng-container>
+  <ng-container *ngIf="clicked">
+    <ng-container *ngIf="error$ | async as error">
+      <app-error-note [error]="error"></app-error-note>
+    </ng-container>
+  </ng-container>
+</div>

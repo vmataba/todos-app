@@ -1,0 +1,15 @@
+<div class="listings" *ngIf="label$ | async as label">
+  <h3 class="text-muted">{{label.name}}</h3>
+  <div *ngIf="label?.listings?.length else noLabelsFound" class="listings-rows">
+    <div class="row" *ngFor="let group of groupIntoRows(label.listings,3)">
+      <div class="col-md-4" *ngFor="let listing of group.listings">
+        <app-listing [listing]="listing"></app-listing>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #noLabelsFound>
+  <div class="text-muted no-listings">
+    No Listings found
+  </div>
+</ng-template>

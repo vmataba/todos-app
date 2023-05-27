@@ -1,0 +1,13 @@
+<form [formGroup]="form" (ngSubmit)="save()" class="todo-form">
+  <div class="form-input">
+    <input formControlName="name" placeholder="Add new label">
+  </div>
+  <div class="submit-button">
+    <button type="submit" class="mt-2" [disabled]="form.invalid">
+      <b><i class="bi bi-save"></i></b>
+    </button>
+  </div>
+</form>
+<ng-container *ngIf="error$ | async as error">
+  <app-error-note [error]="error"></app-error-note>
+</ng-container>

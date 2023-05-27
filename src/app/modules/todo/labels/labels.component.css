@@ -1,0 +1,44 @@
+.labels-list {
+  width: 100%;
+}
+
+@media screen and (max-width: 760px) {
+  .labels-list {
+    width: 100%;
+  }
+}
+
+.list-group,
+.list-group-item {
+  border-left: none;
+  border-right: none;
+}
+
+.btn-new-label {
+  border: none;
+}
+
+.btn-new-label i {
+  font-size: 2em;
+}
+
+.btn-new-label i:hover {
+  color: #1e88e5;
+}
+
+.label-form {
+  margin-bottom: 10px;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.loader {
+  padding-left: 15px;
+}
+
+.title {
+  text-align: center;
+  color: silver;
+  font-size: 1.2em;
+  font-weight: bold
+}

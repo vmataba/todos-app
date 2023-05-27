@@ -1,0 +1,11 @@
+.toast{
+  width: 30%;
+  top: 0;
+}
+
+@media screen and (max-width: 760px) {
+  .toast{
+    width: 100%;
+    right: 10px;
+  }
+}

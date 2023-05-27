@@ -1,0 +1,20 @@
+.listings-rows .row:not(:first-child) {
+  margin-top: 10px;
+}
+
+@media screen and (max-width: 760px) {
+  .listings-rows .row:not(:first-child) {
+    margin-top: 0
+  }
+
+  .row [class^="col"] {
+    margin-top: 10px;
+  }
+  .listings h1{
+    padding-left: 10px;
+    padding-top: 10px
+  }
+  .no-listings{
+    padding-left: 10px;
+  }
+}

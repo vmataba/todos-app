@@ -1,5 +1,69 @@
 @import "~node_modules/bootstrap/dist/css/bootstrap.min.css";
+@import "~node_modules/bootstrap-icons/font/bootstrap-icons.min.css";
+
+.text-right {
+  text-align: right;
+}
+
+@font-face {
+  font-face-name: Poppins;
+  font-family: Poppins;
+  src: url("~src/assets/fonts/poppins/Poppins-Light.ttf");
+}
+@font-face {
+  font-face-name: Sen;
+  font-family: Sen;
+  src: url("~src/assets/fonts/sen/Sen-Regular.ttf");
+}
+
+body {
+  font-family: Sen, serif;
+}
+
+.list-group,
+.list-group-item {
+  border-radius: 0;
+}
+
+.form-control {
+  border-radius: 0;
+}
+.btn {
+  border-radius: 0;
+}
+
+.btn-toggle {
+  cursor: pointer;
+  text-decoration: none;
+}
+a {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.list-group-item{
+  cursor: pointer;
+}
 
 .text-right{
   text-align: right;
+}
+
+
+.list-group,
+.list-group-item {
+  border-left: none;
+  border-right: none;
+}
+
+i.bi{
+  font-size: 1em;
+}
+
+.toast{
+  border-radius: 0;
+  border: 1px solid #cccc;
+  width: 100%;
+  box-shadow: none;
+  margin-top: 10px;
 }

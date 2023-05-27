@@ -1,38 +1,65 @@
-<div class="container mt-5">
-  <h1 class="text-center">Login</h1>
-  <form [formGroup]="form" (ngSubmit)="login()">
-    <div class="form-group">
-      <label>Username</label>
-      <input formControlName="username"
-             type="text"
-             class="form-control"
-             [class.is-invalid]="username?.touched && username?.hasError('required')"/>
-      <small class="text-danger" *ngIf="username?.touched && username?.hasError('required')">
-        Username is required
-      </small>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-7 col-sm-12 welcome-note">
+      <h1>Welcome to Todos App</h1>
+      <ul class="list-group instructions">
+        <li class="list-group-item">First you should create an account if you do not have one</li>
+        <li class="list-group-item">Login to your account</li>
+        <li class="list-group-item">Create the Labels</li>
+        <li class="list-group-item">Create Listings</li>
+        <li class="list-group-item">Create Tasks</li>
+      </ul>
+      <p class="final-text">
+        And that's it nothing more
+      </p>
     </div>
-    <div class="form-group">
-      <label>Password</label>
-      <input formControlName="password"
-             type="password"
-             class="form-control"
-             [class.is-invalid]="password?.touched && password?.hasError('required')"/>
-      <div class="errors">
-        <small class="text-danger" *ngIf="password?.touched && password?.hasError('required')">
-          Password is required
-        </small>
+    <div class="col-md-4 offset-md-1 col-sm-12 login-form">
+      <div class="login-form-contents" *ngIf="!showSignupForm else signupForm">
+        <h1 class="text-center">Login</h1>
+        <div class="alert alert-success" *ngIf="(firstName$ | async) && !(isGuest$ | async)">
+          Congratulations <b>{{firstName$ | async}}</b>, your account has been successfully created, please login to proceed
+        </div>
+        <form [formGroup]="form" (ngSubmit)="login()">
+          <div class="form-group">
+            <label>Username</label>
+            <input formControlName="username"
+                   type="text"
+                   class="form-control"
+                   [class.is-invalid]="username?.touched && username?.hasError('required')"/>
+            <small class="text-danger" *ngIf="username?.touched && username?.hasError('required')">
+              Username is required
+            </small>
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <input formControlName="password"
+                   type="password"
+                   class="form-control"
+                   [class.is-invalid]="password?.touched && password?.hasError('required')"/>
+            <div class="errors">
+              <small class="text-danger" *ngIf="password?.touched && password?.hasError('required')">
+                Password is required
+              </small>
+            </div>
+          </div>
+          <div class="form-group" *ngIf="loading$|async">
+            <div class="loader">Loading ....</div>
+          </div>
+          <div class="alert alert-danger mt-2" *ngIf="error$ | async as error">{{error.message}}</div>
+          <div class="form-group mt-2 text-right">
+            <button class="btn btn-sm btn-primary" [class.disabled]="form.invalid">
+              Login
+            </button>
+            <span *ngIf="!(user$ | async)">
+              or
+            <a (click)="toggleShowSignup()" class="text-primary btn-toggle">Signup</a>
+           </span>
+          </div>
+        </form>
       </div>
+      <ng-template #signupForm>
+        <app-signup (onToggle)="handleSignupToggle($event)"></app-signup>
+      </ng-template>
     </div>
-    <div class="form-group" *ngIf="loading$|async">
-      <div class="loader">Loading ....</div>
-    </div>
-
-    <div class="alert alert-danger mt-2" *ngIf="errorMessage$ | async as errorMessage">{{errorMessage}}</div>
-
-    <div class="form-group mt-2 text-right">
-      <button class="btn btn-sm btn-primary" [class.disabled]="form.invalid">
-        Login
-      </button>
-    </div>
-  </form>
+  </div>
 </div>

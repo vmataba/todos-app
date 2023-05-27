@@ -1,0 +1,11 @@
+i.bi{
+  font-size: 1em;
+}
+
+.toast{
+  border-radius: 0;
+  border: 1px solid #cccc;
+  width: 100%;
+  box-shadow: none;
+  margin-top: 10px;
+}

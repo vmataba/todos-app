@@ -1,0 +1,58 @@
+.todo-form {
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+  padding: 0;
+}
+
+.form-input {
+  flex-grow: 9;
+}
+
+.form-input input {
+  width: 100%;
+  border:none;
+  height: 28px;
+  outline: none;
+}
+
+.submit-button {
+  padding: 0;
+  width: 50px;
+  height: 50px;
+  margin-top: -10px;
+  flex-grow: 1;
+}
+
+button[type=submit] {
+  border: none;
+  font-weight: bold !important;
+  font-size: 1.2em;
+  color: #ccc;
+  background-color: white;
+  width: 100%;
+}
+
+button[type=submit]:hover {
+  color: #1e88e5;
+}
+
+button[type=submit]:disabled {
+  color: #cccc;
+  cursor: initial;
+}
+
+@media screen and (min-width: 576px) {
+  button[type=submit] {
+    border: none;
+  }
+}
+
+i.bi {
+  font-size: 1em;
+}
+
+.toast {
+  border-radius: 0;
+  border: 1px solid #cccc;
+}

@@ -7,10 +7,13 @@ import {authReducer} from "../../store/reducers/auth.reducer";
 import {EffectsModule} from "@ngrx/effects";
 import {AuthEffect} from "../../store/effects/auth.effect";
 import {AuthService} from "../../services/auth.service";
+import {RouterLink} from "@angular/router";
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
   declarations: [
-    LoginComponent
+    LoginComponent,
+    SignupComponent
   ],
   providers: [
     AuthService
@@ -19,7 +22,8 @@ import {AuthService} from "../../services/auth.service";
     CommonModule,
     ReactiveFormsModule,
     StoreModule.forFeature('auth', authReducer),
-    EffectsModule.forFeature([AuthEffect])
+    EffectsModule.forFeature([AuthEffect]),
+    RouterLink
   ]
 })
 export class AuthModule {

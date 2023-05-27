@@ -1,0 +1,48 @@
+@media screen and (max-width: 760px) {
+  .label {
+    width: 100%;
+  }
+}
+
+.actions {
+  font-size: small;
+  float: right;
+}
+
+.actions a {
+  text-decoration: none
+}
+
+.actions a:hover {
+  font-weight: bold
+}
+
+.title:hover {
+  font-weight: bold;
+}
+
+@keyframes animate {
+  0% {
+    font-weight: normal;
+  }
+  50%{
+    font-weight: bold;
+  }
+  100% {
+    font-weight: bolder;
+  }
+}
+
+i.bi{
+  font-size: 1.2em;
+}
+i.bi:hover{
+  font-weight: bold;
+}
+
+.btn-update:hover{
+  color: #1e88e5;
+}
+.btn-delete:hover{
+  color: orangered;
+}
