@@ -1,7 +1,7 @@
 <div class="task">
   <p class="description"> {{task?.description}}</p>
   <span class="status">
-    <i class="bi bi-check text-success" *ngIf="completed"></i>
-    <i class="bi bi-clock-history text-warning" *ngIf="!completed"></i>
+    <i class="bi bi-check text-success" *ngIf="completed" (click)="updateStatus(0)"></i>
+    <i class="bi bi-clock-history text-warning" *ngIf="!completed" (click)="updateStatus(1)"></i>
   </span>
 </div>

@@ -84,7 +84,7 @@ export const taskReducer = createReducer(
     loaded: false,
     error: undefined,
     tasks: [
-        ...state.task.filter((existingTask:Task) => existingTask.id != task.id),
+        ...state.tasks.filter((existingTask:Task) => existingTask.id != task.id),
         task
     ]
   })),
