@@ -1,15 +1,18 @@
 import { NgModule } from '@angular/core';
 import {AsyncPipe, CommonModule, NgIf} from '@angular/common';
 import { ErrorNoteComponent } from './error-note/error-note.component';
+import { ModalComponent } from './modal/modal.component';
 
 
 
 @NgModule({
   declarations: [
-    ErrorNoteComponent
+    ErrorNoteComponent,
+    ModalComponent
   ],
   exports: [
-    ErrorNoteComponent
+    ErrorNoteComponent,
+    ModalComponent
   ],
   imports: [
     CommonModule,

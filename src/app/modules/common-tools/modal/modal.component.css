@@ -1,0 +1,9 @@
+.modal.show{
+    display: block;
+}
+.modal{
+    width: 100%;
+}
+.modal * {
+    border-radius: 0;
+}
