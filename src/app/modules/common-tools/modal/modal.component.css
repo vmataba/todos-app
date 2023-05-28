@@ -3,7 +3,15 @@
 }
 .modal{
     width: 100%;
+
 }
 .modal * {
     border-radius: 0;
+}
+.modal-header,
+.modal-footer,
+.modal-body
+{
+    background-color: white;
+
 }

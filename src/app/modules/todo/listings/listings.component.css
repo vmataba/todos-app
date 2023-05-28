@@ -10,7 +10,7 @@
   .row [class^="col"] {
     margin-top: 10px;
   }
-  .listings h1{
+  .listings .heading{
     padding-left: 10px;
     padding-top: 10px
   }
