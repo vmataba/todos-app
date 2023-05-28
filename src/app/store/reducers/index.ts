@@ -1,9 +1,13 @@
 import {ActionReducer, combineReducers, MetaReducer} from "@ngrx/store";
 import {authReducer, AuthState} from "./auth.reducer";
 import {labelsReducer, LabelsState} from "./label.reducer";
+import { listingReducer, ListingState } from "./listing.reducer";
+import { taskReducer, TaskState } from "./task.reducer";
 
 export interface TodosState {
   labels: LabelsState
+  listings: ListingState
+  tasks: TaskState
 }
 
 export interface AppState {
@@ -12,7 +16,9 @@ export interface AppState {
 }
 
 export const todosReducer = combineReducers({
-  labels: labelsReducer
+  labels: labelsReducer,
+  listings: listingReducer,
+  tasks: taskReducer
 })
 
 export const appReducers = combineReducers({
