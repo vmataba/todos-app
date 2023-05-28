@@ -6,13 +6,10 @@ import {TASK_STATUS_COMPLETED, Task} from "../../../store/models/task.model";
   templateUrl: './task.component.html',
   styleUrls: ['./task.component.css']
 })
-export class TaskComponent implements OnInit{
+export class TaskComponent{
 
   @Input() task: Task | undefined
 
   completed: boolean = false
-
-  ngOnInit(): void {
-      this.completed = this.task?.status == TASK_STATUS_COMPLETED
-  }
+  
 }

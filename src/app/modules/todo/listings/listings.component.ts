@@ -17,18 +17,4 @@ export class ListingsComponent {
   constructor(private store: Store) {
     this.label$ = store.select(getActiveLabel)
   }
-
-  groupIntoRows(listings: Listing[], columnsCount: number) {
-    let groupedListings: { rowNumber?: number, listings?: Listing[] }[] = []
-    for (let count = 0; count < listings.length; count += columnsCount) {
-      try {
-        groupedListings.push({
-          rowNumber: count + 1,
-          listings: listings?.slice(count, count + columnsCount)
-        })
-      } catch (e) {
-      }
-    }
-    return groupedListings;
-  }
 }

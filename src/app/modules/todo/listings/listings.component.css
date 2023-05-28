@@ -2,6 +2,12 @@
   margin-top: 10px;
 }
 
+.grid{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  grid-gap: 10px;
+}
+
 @media screen and (max-width: 760px) {
   .listings-rows .row:not(:first-child) {
     margin-top: 0
@@ -16,5 +22,9 @@
   }
   .no-listings{
     padding-left: 10px;
+  }
+
+  .grid{
+    grid-template-columns: auto;
   }
 }
