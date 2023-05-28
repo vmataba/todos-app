@@ -15,11 +15,11 @@ export const SIZE_DEFAULT = 'default'
 })
 export class ModalComponent {
 
-  @Input() opened: boolean = true
+  @Input() opened: boolean = false
 
   @Input() size: string = SIZE_DEFAULT
 
-  @Input() title: string = ''
+  @Input() title: string | undefined = ''
 
   open(){
     this.opened = true

@@ -1,17 +1,12 @@
-.modal.show{
+.modal.show {
     display: block;
 }
-.modal{
-    width: 100%;
 
+.modal-dialog {
+    border: 1px solid #cccc
 }
-.modal * {
+
+.modal-content {
+    border: none;
     border-radius: 0;
-}
-.modal-header,
-.modal-footer,
-.modal-body
-{
-    background-color: white;
-
 }
