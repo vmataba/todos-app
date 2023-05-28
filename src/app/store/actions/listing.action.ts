@@ -19,9 +19,9 @@ export enum ListingActionTypes{
     DELETE_FAIL = '[ Listing ] Fail'
 }
 
-export const updateLabel = createAction(ListingActionTypes.UPDATE_LABEL,props<{label:Label}>())
+export const updateLabel = createAction(ListingActionTypes.UPDATE_LABEL,props<{label:Label | undefined}>())
 
-export const load = createAction(ListingActionTypes.LOAD)
+export const load = createAction(ListingActionTypes.LOAD,props<{labelId?: number}>())
 export const loadSuccess = createAction(ListingActionTypes.LOAD_SUCCESS,props<{listings: Listing[]}>())
 export const loadFail = createAction(ListingActionTypes.LOAD_FAIL,props<{error: SystemError}>())
 
