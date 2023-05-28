@@ -1,7 +1,8 @@
-import {Component} from '@angular/core';
+import {Component, OnDestroy} from '@angular/core';
 import {Store} from "@ngrx/store";
 import {logout} from "../../../store/actions/auth.action";
 import {Router} from "@angular/router";
+import { CACHED_APP_STATE_KEY } from 'src/app/store/reducers';
 
 @Component({
   selector: 'app-navbar',
@@ -18,4 +19,5 @@ export class NavbarComponent {
     //TODO: add this in effects
     this.router.navigate(['/login']).then()
   }
+
 }

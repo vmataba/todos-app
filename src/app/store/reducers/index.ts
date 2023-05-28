@@ -3,6 +3,9 @@ import {authReducer, AuthState} from "./auth.reducer";
 import {labelsReducer, LabelsState} from "./label.reducer";
 import { listingReducer, ListingState } from "./listing.reducer";
 import { taskReducer, TaskState } from "./task.reducer";
+import { AuthActionTypes } from "../actions/auth.action";
+
+export const CACHED_APP_STATE_KEY = 'appState'
 
 export interface TodosState {
   labels: LabelsState
@@ -28,8 +31,12 @@ export const appReducers = combineReducers({
 
 export const storeStateChanges = (reducer: ActionReducer<any>) => {
   return function (state: any, action: any) {
+    if (action.type == AuthActionTypes.LOGOUT){
+      //TODO: use logout success
+    }
+ 
     state = reducer(state, action)
-    localStorage.setItem('appState', JSON.stringify(state))
+    localStorage.setItem(CACHED_APP_STATE_KEY, JSON.stringify(state))
     return state
   }
 }
