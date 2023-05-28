@@ -16,6 +16,7 @@ import { ListingsComponent } from './listings/listings.component';
 import { ListingComponent } from './listing/listing.component';
 import { TaskComponent } from './task/task.component';
 import { WelcomeNoteComponent } from './welcome-note/welcome-note.component';
+import { ListingFormComponent } from './listing-form/listing-form.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { WelcomeNoteComponent } from './welcome-note/welcome-note.component';
     ListingsComponent,
     ListingComponent,
     TaskComponent,
-    WelcomeNoteComponent
+    WelcomeNoteComponent,
+    ListingFormComponent
   ],
   imports: [
     ReactiveFormsModule,

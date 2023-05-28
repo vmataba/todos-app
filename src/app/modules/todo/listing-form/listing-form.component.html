@@ -1,0 +1,19 @@
+<form [formGroup]="form">
+    <div class="form-group">
+        <input type="text" formControlName="title" class="standard-input" placeholder="What's your todos all about?">
+    </div>
+    <div class="form-group">
+        <label>What's status of this todo list?</label>
+        <div class="radio-list">
+            <input formControlName="status" [value]="1" type="radio" class="form-check-input">
+            Active
+            <input formControlName="status" [value]="0" type="radio" class="form-check-input">
+            Archived
+        </div>
+    </div>
+    <div class="form-group submit-button">
+        <button [class.disabled]="form.invalid">
+            <i class="bi bi-save"></i>
+        </button>
+    </div>
+</form>

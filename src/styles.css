@@ -67,3 +67,18 @@ i.bi{
   box-shadow: none;
   margin-top: 10px;
 }
+
+.disabled{
+  color: #cccc;
+  cursor: initial;
+}
+
+.standard-input{
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #cccc;
+  border-radius: 0;
+  width: 100%;
+  margin-bottom: 15px;
+  padding-bottom: 5px;
+}

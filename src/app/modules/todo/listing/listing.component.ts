@@ -10,4 +10,10 @@ export class ListingComponent {
 
   @Input() listing: Listing | undefined
 
+  inViewMode:boolean = false
+
+  toggleViewMode(){
+    this.inViewMode = !this.inViewMode
+  }
+
 }

@@ -7,17 +7,22 @@
           <app-task [task]="task"></app-task>
         </li>
         <li *ngIf="tasks.length > 3" class="list-group-item more-tasks">
-          <a>View {{tasks.length - 3  | number}} more task(s)</a>
+          <a (click)="toggleViewMode()">View {{tasks.length - 3  | number}} more task(s)</a>
         </li>
       </ul>
-      <p class="text-right mt-2">
-        <a>
-          <i class="bi bi-arrows-expand"></i>
-        </a>
-      </p>
     </div>
     <ng-template #noTasks>
       <p class="text-muted text-center">No tasks found</p>
     </ng-template>
+    <p class="text-right mt-2">
+      <a (click)="toggleViewMode()">
+        <i class="bi bi-arrows-expand"></i>
+      </a>
+    </p>
   </div>
 </div>
+<ng-container *ngIf="listing && inViewMode">
+<app-modal [opened]="true" [title]="listing.title">
+  <app-listing-form [listing]="listing"></app-listing-form>
+</app-modal>
+</ng-container>
