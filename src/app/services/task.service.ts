@@ -13,6 +13,10 @@ export class TaskService {
     return this.httpClient.get<Task[]>(`/api/tasks/${listingId}`)
   }
 
+  loadByLabel(labelId: number) {
+    return this.httpClient.get<Task[]>(`/api/tasks/by-label/${labelId}`)
+  }
+
   add(listingId: number, listing: Listing) {
     return this.httpClient.post<Task>(`/api/tasks/${listingId}`, listing)
   }

@@ -25,7 +25,8 @@ export const updateListing = createAction(
   props<{ listing: Listing }>()
 );
 
-export const load = createAction(TaskActionTypes.LOAD);
+export const load = createAction(TaskActionTypes.LOAD,props<{labelId?: number}>());
+
 export const loadSuccess = createAction(
   TaskActionTypes.LOAD_SUCCESS,
   props<{ tasks: Task[] }>()

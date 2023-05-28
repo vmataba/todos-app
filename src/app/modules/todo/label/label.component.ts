@@ -7,6 +7,7 @@ import {SystemError} from "../../../store/models/system-error.model";
 import {getActiveLabel, getError} from "../../../store/selectors/label.selector";
 import * as fromListingSelectors from "../../../store/selectors/listing.selector";
 import * as fromListingActions from "../../../store/actions/listing.action";
+import * as fromTaskActions from "../../../store/actions/task.action ";
 
 @Component({
   selector: 'app-label',
@@ -56,5 +57,6 @@ export class LabelComponent implements OnInit{
   toggleActiveness(id?: number) {
     this.store.dispatch(setActive({id}))
     this.store.dispatch(fromListingActions.load({labelId: id}))
+    this.store.dispatch(fromTaskActions.load({labelId: id}))
   }
 }

@@ -25,7 +25,7 @@ export interface TaskState {
   loading: boolean;
   loaded: boolean;
   listing: Listing | undefined;
-  tasks: Listing[];
+  tasks: Task[];
   error?: SystemError;
 }
 

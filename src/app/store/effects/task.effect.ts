@@ -22,7 +22,7 @@ export class TaskEffect {
     return this.actions$.pipe(
       ofType(TaskActionTypes.LOAD),
       mergeMap((action: any) =>
-        this.service.load(action.listingId).pipe(
+        this.service.loadByLabel(action.labelId).pipe(
           map((tasks) => loadSuccess({ tasks })),
           catchError((response) => {
             const { status, statusText, error } = response;

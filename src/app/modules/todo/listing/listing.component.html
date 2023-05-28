@@ -1,16 +1,24 @@
+
 <div class="card">
   <div class="card-body">
     <h5 class="card-title">{{listing?.title}}</h5>
-    <div *ngIf="listing?.tasks?.length else noTasks">
-      <ul class="list-group" *ngIf="listing?.tasks as tasks">
-        <li class="list-group-item" *ngFor="let task of listing?.tasks?.slice(0,3)">
-          <app-task [task]="task"></app-task>
-        </li>
-        <li *ngIf="tasks.length > 3" class="list-group-item more-tasks">
-          <a (click)="toggleViewMode()">View {{tasks.length - 3  | number}} more task(s)</a>
-        </li>
-      </ul>
+
+    <div *ngIf="tasks$ | async as tasks">
+      <div *ngIf="tasks.length else noTasks">
+        <ul class="list-group">
+      
+          <li class="list-group-item" *ngFor="let task of tasks?.slice(0,3)">
+          
+            <app-task [task]="task"></app-task>
+          </li>
+          <li *ngIf="tasks.length > 3" class="list-group-item more-tasks">
+            <a (click)="toggleViewMode()">View {{tasks.length - 3  | number}} more task(s)</a>
+          </li>
+        </ul>
+      </div>
     </div>
+
+  
     <ng-template #noTasks>
       <p class="text-muted text-center no-tasks">No tasks found</p>
     </ng-template>
