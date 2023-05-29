@@ -1,4 +1,4 @@
-<div class="task">
+<div class="task" (mouseover)="toggleDeleteOption()" (mouseout)="toggleDeleteOption()">
   <p class="description" *ngIf="!completed"> {{task?.description}}</p>
   <p class="description" *ngIf="completed"> 
     <del>{{task?.description}}</del>
@@ -8,7 +8,7 @@
     <i class="bi bi-check text-success" *ngIf="completed" (click)="updateStatus(0)"></i>
     <i class="bi bi-clock-history text-warning" *ngIf="!completed" (click)="updateStatus(1)"></i>
   </span>
-  <span class="delete-icon">
+  <span class="delete-icon" [hidden]="!showDeleteOption">
     <i class="bi bi-x text-danger" (click)="deleteTask()"></i>
   </span>
 </div>

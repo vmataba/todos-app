@@ -1,24 +1,27 @@
-.task{
+.task {
   display: flex;
   flex-direction: row;
 }
- .description{
+
+.description {
   padding: 0;
   margin: 0;
   flex-grow: 9;
 }
 
-.bi.text-success{
+.bi.text-success {
   font-size: 1.2em;
 }
 
-.icon-buttons{
+.icon-buttons {
   display: flex;
   justify-content: space-around;
 }
-.delete-icon{
+
+.delete-icon {
   padding-left: 5px;
 }
-.delete-icon i{
+
+.delete-icon i {
   font-size: 1.2em;
 }

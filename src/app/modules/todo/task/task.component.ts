@@ -15,6 +15,8 @@ export class TaskComponent implements OnInit{
 
   completed: boolean = false
 
+  showDeleteOption = false
+
   constructor(private store: Store){}
 
   ngOnInit(): void {
@@ -31,6 +33,10 @@ export class TaskComponent implements OnInit{
       status
      }
     }))
+  }
+
+  toggleDeleteOption(){
+    this.showDeleteOption = !this.showDeleteOption
   }
 
   deleteTask(){
