@@ -1,12 +1,27 @@
-.simple-navbar{
+.simple-navbar {
   background-color: #1e88e5;
   margin: 0;
   color: white;
   padding-left: 10px;
   padding-right: 10px;
   width: 100vw;
+  display: flex;
 }
-.navbar-brand{
+
+.navbar-brand {
   color: white;
+  font-weight: bold;
+  flex-grow: 9;
+}
+
+.profile-image {
+  color: black;
+  font-size: 2em;
+  aspect-ratio: 1;
+  width: 50px;
+  background-color: white;
+  border-radius: 100%;
+  padding: 0;
+  text-align: center;
   font-weight: bold;
 }

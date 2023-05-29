@@ -1,5 +1,8 @@
 <div class="navbar simple-navbar">
   <div class="navbar-brand">TODOS</div>
-  <a (click)="logout()">Logout</a>
+  <!-- <a (click)="logout()">Logout</a> -->
+  <a class="profile-image">
+    {{ firstNameLetter$ | async}}
+  </a>
 </div>
 
