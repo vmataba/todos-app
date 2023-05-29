@@ -21,6 +21,7 @@ import { ListingEffect } from 'src/app/store/effects/listing.effect';
 import { TaskEffect } from 'src/app/store/effects/task.effect';
 import { ListingService } from 'src/app/services/listing.service';
 import { TaskService } from 'src/app/services/task.service';
+import { FilterPipe } from 'src/app/common/pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { TaskService } from 'src/app/services/task.service';
     TaskComponent,
     WelcomeNoteComponent,
     ListingFormComponent,
+    FilterPipe
   ],
   imports: [
     ReactiveFormsModule,

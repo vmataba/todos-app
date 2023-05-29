@@ -2,12 +2,17 @@
   Fetching listings please wait ...
 </div>
 
+<div class="search">
+  <input type="text" #keyword placeholder="Type to search" [value]="keyword$ | async"
+    (keyup)="updateSearchKeyWord(keyword.value)" />
+</div>
+
 <div class="listings" *ngIf="label$ | async as label">
   <h3 class="text-muted heading">{{label.name}}</h3>
   <div *ngIf="listings$ | async as listings">
     <div *ngIf="listings.length else noLabelsFound" class="listings-rows">
       <div class="grid">
-        <div class="grid-column" *ngFor="let listing of listings">
+        <div class="grid-column" *ngFor="let listing of listings | filter: keyword.value">
           <app-listing [listing]="listing"></app-listing>
         </div>
       </div>

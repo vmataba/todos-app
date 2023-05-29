@@ -16,7 +16,8 @@ export enum ListingActionTypes{
     UPDATE_FAIL = '[ Listing ] Update Fail',
     DELETE = '[ Listing ] Delete',
     DELETE_SUCCESS = '[ Listing ] Success',
-    DELETE_FAIL = '[ Listing ] Fail'
+    DELETE_FAIL = '[ Listing ] Fail',
+    UPDATE_SEARCH_KEYWORD = '[ Listing ] Update Search Keyword',
 }
 
 export const updateLabel = createAction(ListingActionTypes.UPDATE_LABEL,props<{label:Label | undefined}>())
@@ -37,3 +38,5 @@ export const updateFail = createAction(ListingActionTypes.UPDATE_FAIL,props<{err
 export const deleteList = createAction(ListingActionTypes.DELETE,props<{id: number}>())
 export const deleteListSuccess = createAction(ListingActionTypes.DELETE_SUCCESS,props<{id: number}>())
 export const deleteListFail = createAction(ListingActionTypes.DELETE_FAIL,props<{error: SystemError}>())
+
+export const updateSearchKeyWord = createAction(ListingActionTypes.UPDATE_SEARCH_KEYWORD,props<{keyword: string}>())

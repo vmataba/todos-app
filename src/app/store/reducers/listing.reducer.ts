@@ -17,7 +17,8 @@ import {
   deleteList,
   deleteListSuccess,
   deleteListFail,
-  updateLabel
+  updateLabel,
+  updateSearchKeyWord
 } from '../actions/listing.action';
 import { state } from '@angular/animations';
 
@@ -27,12 +28,14 @@ export interface ListingState {
   label: Label | undefined;
   listings: Listing[];
   error?: SystemError;
+  keyword: string
 }
 
 const initialState = getStoredState('todos.listings', {
   loading: false,
   loaded: false,
   listings: [],
+  searchKeyword: ''
 });
 
 export const listingReducer = createReducer(
@@ -107,5 +110,11 @@ export const listingReducer = createReducer(
     loading: false,
     loaded: false,
     error,
+  })),
+  on(updateSearchKeyWord, (state, { keyword }) => ({
+    ...state,
+    loading: false,
+    loaded: false,
+    keyword
   })),
 );

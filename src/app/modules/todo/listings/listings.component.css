@@ -27,4 +27,20 @@
   .grid{
     grid-template-columns: auto;
   }
+  .search input{
+    width: 100%;
+  }
+}
+
+.search{
+  text-align: right;
+  width: 30%;
+  margin-left: auto;
+}
+.search input{
+  border: none;
+  border-bottom: 1px solid #cccc;
+  outline: none;
+  height: 50px;
+  width: 100%;
 }

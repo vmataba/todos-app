@@ -21,3 +21,5 @@ export const getListings = createSelector(getListingState, state => [...state.li
     }
     return 1;
 }))
+
+export const getSearchKeyWord = createSelector(getListingState,state => state.keyword)
