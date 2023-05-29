@@ -15,7 +15,7 @@ export enum ListingActionTypes{
     UPDATE_SUCCESS = '[ Listing ] Update Success',
     UPDATE_FAIL = '[ Listing ] Update Fail',
     DELETE = '[ Listing ] Delete',
-    DELETE_SUCCESS = '[ Listing ] Success',
+    DELETE_SUCCESS = '[ Listing ] Delete Success',
     DELETE_FAIL = '[ Listing ] Fail',
     UPDATE_SEARCH_KEYWORD = '[ Listing ] Update Search Keyword',
     CLEAR_ERROR = '[ Listing ] Clear Error',
