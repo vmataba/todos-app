@@ -42,4 +42,11 @@ export class ListingComponent implements OnInit {
     }
     this.store.dispatch(fromListingActions.update({listing: {...this.listing,status}}))
   }
+
+  deleteListing(){
+    if (!this.listing?.id){
+      return;
+    }
+    this.store.dispatch(fromListingActions.deleteList({id: this.listing.id}))
+  }
 }
