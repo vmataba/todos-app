@@ -7,3 +7,7 @@
 .no-tasks{
   margin-top: 25px;
 }
+.action-buttons{
+  display: flex;
+  justify-content: space-between;
+}

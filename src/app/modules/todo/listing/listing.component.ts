@@ -1,36 +1,45 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {Listing} from "../../../store/models/listing.model";
+import { Component, Input, OnInit } from '@angular/core';
+import { LISTING_STATUS_ARCHIVED, Listing } from '../../../store/models/listing.model';
 import { Observable, of } from 'rxjs';
 import { Task } from 'src/app/store/models/task.model';
-import * as fromTaskSelector from '../../../store/selectors/task.selector'
+import * as fromTaskSelector from '../../../store/selectors/task.selector';
 import { Store } from '@ngrx/store';
+import * as fromListingActions from 'src/app/store/actions/listing.action';
 
 @Component({
   selector: 'app-listing',
   templateUrl: './listing.component.html',
-  styleUrls: ['./listing.component.css']
+  styleUrls: ['./listing.component.css'],
 })
-export class ListingComponent implements OnInit{
+export class ListingComponent implements OnInit {
+  @Input() listing: Listing | undefined;
 
-  @Input() listing: Listing | undefined
+  tasks$: Observable<Task[]>;
 
-  tasks$: Observable<Task[]>
+  inViewMode: boolean = false;
 
-  inViewMode:boolean = false
-  
-  constructor(private store: Store){
-    this.tasks$ = of([])
+  archived: boolean = false;
+
+  constructor(private store: Store) {
+    this.tasks$ = of([]);
   }
 
   ngOnInit(): void {
-      if (!this.listing?.id){
-        return;
-      }
-      this.tasks$ = this.store.select(fromTaskSelector.getTasks(this.listing.id))
+    if (!this.listing?.id) {
+      return;
+    }
+    this.tasks$ = this.store.select(fromTaskSelector.getTasks(this.listing.id));
+    this.archived = this.listing.status == LISTING_STATUS_ARCHIVED
   }
 
-  toggleViewMode(){
-    this.inViewMode = !this.inViewMode
+  toggleViewMode() {
+    this.inViewMode = !this.inViewMode;
   }
 
+  updateStatus(status: number){
+    if (!this.listing){
+      return;
+    }
+    this.store.dispatch(fromListingActions.update({listing: {...this.listing,status}}))
+  }
 }
