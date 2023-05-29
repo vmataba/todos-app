@@ -83,7 +83,7 @@ export const listingReducer = createReducer(
     loading: false,
     loaded: false,
     error: undefined,
-    listing: [
+    listings: [
         ...state.listings.filter((existingListing:Listing) => existingListing.id != listing.id),
         listing
     ]
