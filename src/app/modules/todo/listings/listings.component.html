@@ -9,6 +9,17 @@
 
 <div class="listings" *ngIf="label$ | async as label">
   <h3 class="text-muted heading">{{label.name}}</h3>
+
+  <button class="btn-new-listing" (click)="toggleViewMode()">
+    <i class="bi bi-plus"></i>
+  </button>
+
+  <ng-container *ngIf="inViewMode">
+    <app-modal [opened]="true" title="New Tasks Listing">
+      <app-listing-form></app-listing-form>
+    </app-modal>
+  </ng-container>
+
   <div *ngIf="listings$ | async as listings">
     <div *ngIf="listings.length else noLabelsFound" class="listings-rows">
       <div class="grid">

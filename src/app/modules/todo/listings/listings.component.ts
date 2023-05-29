@@ -21,16 +21,20 @@ export class ListingsComponent {
 
   keyword$: Observable<string> = of('');
 
+  inViewMode: boolean = false
+
   constructor(private store: Store) {
     this.label$ = store.select(getActiveLabel);
     this.listings$ = store.select(fromListingSelectors.getListings);
     this.loading$ = store.select(fromListingSelectors.getLoading);
     this.keyword$ = store.select(fromListingSelectors.getSearchKeyWord);
-    //this.keyword$ = of('')
-    this.keyword$.subscribe((word) => console.log(word));
   }
 
   updateSearchKeyWord(value:string){
     this.store.dispatch(fromListingActions.updateSearchKeyWord({keyword: value}))
+  }
+
+  toggleViewMode(){
+    this.inViewMode = !this.inViewMode
   }
 }

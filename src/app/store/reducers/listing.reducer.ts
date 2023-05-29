@@ -18,7 +18,8 @@ import {
   deleteListSuccess,
   deleteListFail,
   updateLabel,
-  updateSearchKeyWord
+  updateSearchKeyWord,
+  clearError
 } from '../actions/listing.action';
 import { state } from '@angular/animations';
 
@@ -70,6 +71,7 @@ export const listingReducer = createReducer(
     ...state,
     loading: false,
     loaded: true,
+    error: undefined,
     listings: [
         ...state.listings,
         listing
@@ -101,6 +103,7 @@ export const listingReducer = createReducer(
     ...state,
     loading: false,
     loaded: false,
+    error: undefined,
     listings: [
         ...state.listings.filter((listing:Listing) => listing.id != id)
     ]
@@ -116,5 +119,9 @@ export const listingReducer = createReducer(
     loading: false,
     loaded: false,
     keyword
+  })),
+  on(clearError, (state) => ({
+    ...state,
+    error: undefined
   })),
 );

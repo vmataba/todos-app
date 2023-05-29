@@ -3,6 +3,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { Listing } from 'src/app/store/models/listing.model';
 import * as fromListingActions from 'src/app/store/actions/listing.action'
+import * as fromLabelSelectors from 'src/app/store/selectors/label.selector'
+import * as fromListingSelectors from 'src/app/store/selectors/listing.selector'
+import { Observable } from 'rxjs';
+import { SystemError } from 'src/app/store/models/system-error.model';
 
 @Component({
   selector: 'app-listing-form',
@@ -15,20 +19,25 @@ export class ListingFormComponent implements OnInit {
 
   form: FormGroup
 
+  labelId?: number
+
+  error$: Observable<SystemError | undefined>
+
   constructor(private fb: FormBuilder,private store: Store){
     this.form = fb.group({
       id: [''],
       title: ['',Validators.required],
       status: ['',Validators.required]
     })
+    this.error$ = this.store.select(fromListingSelectors.getError)
   }
 
   ngOnInit(): void {
       this.form.patchValue({
         ...this.listing,
-        //title: this.listing?.title,
-        //status: this.listing?.status
       })
+      this.store.select(fromLabelSelectors.getActiveLabel).subscribe(label => {this.labelId = label?.id})
+      this.store.dispatch(fromListingActions.clearError())
   }
 
   get id(){
@@ -42,10 +51,13 @@ export class ListingFormComponent implements OnInit {
     if(this.form.invalid){
       return;
     }
-    if (this.id){
+    if (this.listing){
       this.store.dispatch(fromListingActions.update({listing: this.form.value}))
       return;
     }
-    this.store.dispatch(fromListingActions.add({listing: this.form.value}))
+    if (!this.labelId){
+      return;
+    }
+    this.store.dispatch(fromListingActions.add({labelId: this.labelId,listing: this.form.value}))
   }
 }

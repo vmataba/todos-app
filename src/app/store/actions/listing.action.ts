@@ -18,6 +18,7 @@ export enum ListingActionTypes{
     DELETE_SUCCESS = '[ Listing ] Success',
     DELETE_FAIL = '[ Listing ] Fail',
     UPDATE_SEARCH_KEYWORD = '[ Listing ] Update Search Keyword',
+    CLEAR_ERROR = '[ Listing ] Clear Error',
 }
 
 export const updateLabel = createAction(ListingActionTypes.UPDATE_LABEL,props<{label:Label | undefined}>())
@@ -26,7 +27,7 @@ export const load = createAction(ListingActionTypes.LOAD,props<{labelId?: number
 export const loadSuccess = createAction(ListingActionTypes.LOAD_SUCCESS,props<{listings: Listing[]}>())
 export const loadFail = createAction(ListingActionTypes.LOAD_FAIL,props<{error: SystemError}>())
 
-export const add = createAction(ListingActionTypes.ADD,props<{listing: Listing}>())
+export const add = createAction(ListingActionTypes.ADD,props<{labelId: number, listing: Listing}>())
 export const addSuccess = createAction(ListingActionTypes.ADD_SUCCESS,props<{listing: Listing}>())
 export const addFail = createAction(ListingActionTypes.ADD_FAIL,props<{error: SystemError}>())
 
@@ -40,3 +41,5 @@ export const deleteListSuccess = createAction(ListingActionTypes.DELETE_SUCCESS,
 export const deleteListFail = createAction(ListingActionTypes.DELETE_FAIL,props<{error: SystemError}>())
 
 export const updateSearchKeyWord = createAction(ListingActionTypes.UPDATE_SEARCH_KEYWORD,props<{keyword: string}>())
+
+export const clearError = createAction(ListingActionTypes.CLEAR_ERROR)

@@ -27,13 +27,16 @@
   .grid{
     grid-template-columns: auto;
   }
+  .search{
+    width: 100% !important;
+    margin-left: 0;
+  }
   .search input{
-    width: 100%;
+    padding-left: 10px;
   }
 }
 
 .search{
-  text-align: right;
   width: 30%;
   margin-left: auto;
 }
@@ -43,4 +46,14 @@
   outline: none;
   height: 50px;
   width: 100%;
+}
+
+.btn-new-listing{
+  background-color: white;
+  border: none;
+  font-size: 2em;
+  color:grey;
+}
+.btn-new-listing:hover{
+  color:  #1e88e5;;
 }
