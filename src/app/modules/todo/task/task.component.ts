@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {TASK_STATUS_COMPLETED, Task} from "../../../store/models/task.model";
 import { Store } from '@ngrx/store';
 import * as fromTakActions from '../../../store/actions/task.action '
+import { take } from 'rxjs';
 
 @Component({
   selector: 'app-task',
@@ -30,6 +31,13 @@ export class TaskComponent implements OnInit{
       status
      }
     }))
+  }
+
+  deleteTask(){
+    if (!this.task?.id){
+      return;
+    }
+    this.store.dispatch(fromTakActions.deleteTask({id: this.task.id}))
   }
   
 }

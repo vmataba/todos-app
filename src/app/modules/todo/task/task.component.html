@@ -3,8 +3,13 @@
   <p class="description" *ngIf="completed"> 
     <del>{{task?.description}}</del>
   </p>
+<div class="icon-buttons">
   <span class="status">
     <i class="bi bi-check text-success" *ngIf="completed" (click)="updateStatus(0)"></i>
     <i class="bi bi-clock-history text-warning" *ngIf="!completed" (click)="updateStatus(1)"></i>
   </span>
+  <span class="delete-icon">
+    <i class="bi bi-x text-danger" (click)="deleteTask()"></i>
+  </span>
+</div>
 </div>
