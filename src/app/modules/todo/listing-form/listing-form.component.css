@@ -7,7 +7,7 @@
     font-size: 1.5em;
 }
 
-.submit-button button:hover{
+.submit-button button:hover:not(.disabled){
    font-weight: bold;
    color: #1e88e5;
 }
