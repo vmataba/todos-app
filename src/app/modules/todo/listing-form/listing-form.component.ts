@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
-import { Listing } from 'src/app/store/models/listing.model';
+import { LISTING_STATUS_ACTIVE, Listing } from 'src/app/store/models/listing.model';
 import * as fromListingActions from 'src/app/store/actions/listing.action'
 import * as fromLabelSelectors from 'src/app/store/selectors/label.selector'
 import * as fromListingSelectors from 'src/app/store/selectors/listing.selector'
@@ -27,7 +27,7 @@ export class ListingFormComponent implements OnInit {
     this.form = fb.group({
       id: [''],
       title: ['',Validators.required],
-      status: ['',Validators.required]
+      status: [LISTING_STATUS_ACTIVE,Validators.required]
     })
     this.error$ = this.store.select(fromListingSelectors.getError)
   }
