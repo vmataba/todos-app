@@ -19,7 +19,8 @@ import {
   deleteListFail,
   updateLabel,
   updateSearchKeyWord,
-  clearError
+  clearError,
+  setActive
 } from '../actions/listing.action';
 import { state } from '@angular/animations';
 
@@ -28,6 +29,7 @@ export interface ListingState {
   loaded: boolean;
   label: Label | undefined;
   listings: Listing[];
+  activeListing?: Listing
   error?: SystemError;
   keyword: string
 }
@@ -119,6 +121,16 @@ export const listingReducer = createReducer(
     loading: false,
     loaded: false,
     keyword
+  })),
+  on(clearError, (state) => ({
+    ...state,
+    error: undefined
+  })),
+  on(setActive, (state, { activeListing }) => ({
+    ...state,
+    loading: false,
+    loaded: false,
+    activeListing
   })),
   on(clearError, (state) => ({
     ...state,

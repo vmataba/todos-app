@@ -7,9 +7,11 @@
         <ul class="list-group">
 
           <li class="list-group-item" *ngFor="let task of (tasks | orderTasks).slice(0,3)">
-
             <app-task [task]="task"></app-task>
           </li>
+          <div class="task-form">
+            <app-task-form [listingId]="listing?.id"></app-task-form>
+          </div>
           <li *ngIf="tasks.length > 3" class="list-group-item more-tasks">
             <a (click)="toggleViewMode()">View {{tasks.length - 3 | number}} more task(s)</a>
           </li>
@@ -17,8 +19,10 @@
       </div>
     </div>
 
-
     <ng-template #noTasks>
+      <div class="task-form">
+        <app-task-form [listingId]="listing?.id"></app-task-form>
+      </div>
       <p class="text-muted text-center no-tasks">No tasks found</p>
     </ng-template>
     <div class="text-right mt-2 action-buttons">

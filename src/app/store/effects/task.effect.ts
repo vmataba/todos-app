@@ -44,7 +44,7 @@ export class TaskEffect {
     return this.actions$.pipe(
       ofType(TaskActionTypes.ADD),
       mergeMap((action: any) =>
-        this.service.add(action.listingId, action.task).pipe(
+        this.service.add(action.task).pipe(
           map((task) => addSuccess({ task })),
           catchError((response) => {
             const { error } = response;

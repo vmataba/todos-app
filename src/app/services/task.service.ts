@@ -17,12 +17,12 @@ export class TaskService {
     return this.httpClient.get<Task[]>(`/api/tasks/by-label/${labelId}`)
   }
 
-  add(listingId: number, listing: Listing) {
-    return this.httpClient.post<Task>(`/api/tasks/${listingId}`, listing)
+  add(task: Task) {
+    return this.httpClient.post<Task>(`/api/tasks/${task.listingId}`, task)
   }
 
-  update(id: number, listing: Listing) {
-    return this.httpClient.put<Task>(`/api/tasks/${id}`, listing)
+  update(id: number, task: Task) {
+    return this.httpClient.put<Task>(`/api/tasks/${id}`, task)
   }
 
   deleteTask(id: number) {

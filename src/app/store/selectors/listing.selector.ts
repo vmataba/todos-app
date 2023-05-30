@@ -11,8 +11,6 @@ export const getLoaded = createSelector(getListingState,state => state.loaded)
 
 export const getError = createSelector(getListingState,state => state.error)
 
-export const getListingsOld = createSelector(getListingState,state => state.listings)
-
 export const getListings = createSelector(getListingState, state => [...state.listings].sort((a,b) => {
     const firstTitle = a.title.toLowerCase()
     const secondTitle = b.title.toLowerCase()
@@ -21,5 +19,7 @@ export const getListings = createSelector(getListingState, state => [...state.li
     }
     return 1;
 }))
+
+export const getActiveListing = createSelector(getListingState, state => state.activeListing)
 
 export const getSearchKeyWord = createSelector(getListingState,state => state.keyword)

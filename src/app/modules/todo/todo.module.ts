@@ -23,6 +23,7 @@ import { ListingService } from 'src/app/services/listing.service';
 import { TaskService } from 'src/app/services/task.service';
 import { FilterPipe } from 'src/app/common/pipes/filter.pipe';
 import { TaskOrderingPipe } from 'src/app/common/pipes/task-ordering.pipe';
+import { TaskFormComponent } from './task-form/task-form.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { TaskOrderingPipe } from 'src/app/common/pipes/task-ordering.pipe';
     WelcomeNoteComponent,
     ListingFormComponent,
     FilterPipe,
-    TaskOrderingPipe
+    TaskOrderingPipe,
+    TaskFormComponent
   ],
   imports: [
     ReactiveFormsModule,
