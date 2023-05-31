@@ -55,7 +55,7 @@
 </div>
 
 
-<ng-container *ngIf="listing && inViewMode">
+<ng-container *ngIf="listing && (inViewMode$ | async)">
   <app-modal [opened]="true" [title]="listing.title">
     <div *ngTemplateOutlet="details context:{showLess:false}"></div>
   </app-modal>

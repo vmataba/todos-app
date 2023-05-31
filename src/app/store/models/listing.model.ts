@@ -9,4 +9,5 @@ export interface Listing {
   title: string
   status?: number
   tasks: Task[]
+  inViewMode: boolean
 }

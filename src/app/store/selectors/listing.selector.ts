@@ -22,4 +22,6 @@ export const getListings = createSelector(getListingState, state => [...state.li
 
 export const getActiveListing = createSelector(getListingState, state => state.activeListing)
 
+export const getInViewMode = createSelector(getActiveListing,listing => listing?.inViewMode)
+
 export const getSearchKeyWord = createSelector(getListingState,state => state.keyword)
