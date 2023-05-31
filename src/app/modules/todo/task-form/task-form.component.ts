@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { Observable, of } from 'rxjs';
@@ -24,7 +24,7 @@ export class TaskFormComponent implements OnInit,AfterViewInit {
   @ViewChild('description') descriptionInput: ElementRef | undefined
 
 
-  constructor(private fb: FormBuilder, private store: Store) {
+  constructor(private fb: FormBuilder, private store: Store,private changeDetector: ChangeDetectorRef) {
     this.form = fb.group({
       id: [''],
       description: ['', Validators.required],
@@ -43,7 +43,8 @@ export class TaskFormComponent implements OnInit,AfterViewInit {
       if (!this.descriptionInput){
         return;
       }
-      this.descriptionInput.nativeElement.focus()
+     // this.descriptionInput.nativeElement.focus()
+     // this.changeDetector.detectChanges()
   }
 
   get description() {
