@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 export const SIZE_LG = 'lg'
 
@@ -21,12 +21,19 @@ export class ModalComponent {
 
   @Input() title: string | undefined = ''
 
-  open(){
+  @Output() close: EventEmitter<any> = new EventEmitter()
+
+  openModal(){
     this.opened = true
   }
 
-  close(){
+  closeModal(){
     this.opened = false
+    this.fireOnCloseEvent()
+  }
+
+  fireOnCloseEvent(){
+    this.close.emit({closed: true})
   }
 
 }

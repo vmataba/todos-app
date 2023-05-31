@@ -4,13 +4,13 @@
             <div class="modal-header">
                 <h5 class="modal-title">{{title}}</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
-                    (click)="close()"></button>
+                    (click)="closeModal()"></button>
             </div>
             <div class="modal-body">
                 <ng-content></ng-content>
             </div>
             <div class="modal-footer" [hidden]="true">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="close()">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="closeModal()">
                     Close
                 </button>
             </div>
