@@ -72,10 +72,10 @@ Remember, these are just examples, and you should adapt the color palette to you
 
 */
 :root {
-    --dark-mode-background-color: #262626;
+    --dark-mode-background-color: #0E1426;
     --dark-mode-text-color: #E6E6E6;
     --dark-mode-accent-color: #3E8FBF;
-    --dark-mode-container-color: #1E2119;
+    --dark-mode-container-color: #A366FF;
 }
 
 html, body {
@@ -90,26 +90,77 @@ html, body {
     color: var(--dark-mode-text-color);
 }
 
-.dark-mode.text-success{
+.dark-mode span.text-success {
+    color: var(--dark-mode-accent-color) !important;
+}
+
+.dark-mode .options .selected {
+    background-color: var(--dark-mode-accent-color) !important;
+    color: var(--dark-mode-text-color);
+}
+
+.dark-mode .options .divider {
+    background-color: var(--dark-mode-text-color) !important;
+}
+
+.dark-mode .options .light,
+.dark-mode .options .dark {
+    border: 1px solid var(--dark-mode-text-color);
+}
+
+.dark-mode .navbar {
+    border-bottom: 1px solid var(--dark-mode-accent-color) !important;
+}
+
+.dark-mode .profile-image{
+    background-color: var(--dark-mode-accent-color) !important;
     color: var(--dark-mode-text-color) !important;
 }
 
+.dark-mode .navbar-brand{
+    color: var(--dark-mode-text-color) !important;
+}
+
+.dark-mode .toast-header,
+.dark-mode .toast-body {
+    border: 1px solid var(--dark-mode-accent-color) !important;
+    background-color: var(--dark-mode-background-color) !important;
+    color: var(--dark-mode-text-color) !important;
+    border-radius: 0 !important
+}
+
+.dark-mode .btn-close .bi {
+    color: var(--dark-mode-text-color) !important;
+}
+
+.dark-mode .card {
+    border: 1px solid var(--dark-mode-accent-color) !important;
+}
 
 .dark-mode button,
 .dark-mode input[type=text],
 .dark-mode .btn-close,
 .dark-mode .card,
-.dark-mode .toast,
 .dark-mode li,
-.dark-mode .simple-navbar,
-.dark-mode .toast-header {
+.dark-mode .navbar {
     background-color: var(--dark-mode-background-color) !important;
     color: var(--dark-mode-text-color) !important;
     border: none;
 }
 
 .dark-mode li {
-    border-bottom: 1px solid #E6E6E6;
+    border-bottom: 1px solid var(--dark-mode-accent-color);
+}
+
+.dark-mode .modal {
+    border: 1px solid var(--dark-mode-accent-color)
+}
+
+.dark-mode .modal-header,
+.dark-mode .modal-body {
+    background-color: var(--dark-mode-background-color);
+    border-radius: 0;
+    border: 1px solid var(--dark-mode-accent-color) !important;
 }
 
 .dark-mode button,
