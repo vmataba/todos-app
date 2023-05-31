@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { LISTING_STATUS_ACTIVE, Listing } from 'src/app/store/models/listing.model';
@@ -17,6 +17,8 @@ export class ListingFormComponent implements OnInit {
 
   @Input() listing: Listing | undefined
 
+  @Output() submit: EventEmitter<any>
+
   form: FormGroup
 
   labelId?: number
@@ -30,6 +32,7 @@ export class ListingFormComponent implements OnInit {
       status: [LISTING_STATUS_ACTIVE,Validators.required]
     })
     this.error$ = this.store.select(fromListingSelectors.getError)
+    this.submit = new EventEmitter()
   }
 
   ngOnInit(): void {
@@ -59,5 +62,6 @@ export class ListingFormComponent implements OnInit {
       return;
     }
     this.store.dispatch(fromListingActions.add({labelId: this.labelId,listing: this.form.value}))
+    this.submit.emit()
   }
 }

@@ -15,8 +15,8 @@
   </button>
 
   <ng-container *ngIf="inViewMode">
-    <app-modal [opened]="true" title="New Tasks Listing">
-      <app-listing-form></app-listing-form>
+    <app-modal [opened]="inViewMode" title="New Tasks Listing">
+      <app-listing-form (submit)="inViewMode = false"></app-listing-form>
     </app-modal>
   </ng-container>
 
