@@ -22,7 +22,8 @@ import { TaskEffect } from 'src/app/store/effects/task.effect';
 import { ListingService } from 'src/app/services/listing.service';
 import { TaskService } from 'src/app/services/task.service';
 import { FilterPipe } from 'src/app/common/pipes/filter.pipe';
-import { TaskOrderingPipe } from 'src/app/common/pipes/task-ordering.pipe';
+import { TaskOrderByDatePipe } from 'src/app/common/pipes/task-order-by-date.pipe';
+import { TaskOrderByStatusPipe } from 'src/app/common/pipes/task-order-by-status.pipe';
 import { TaskFormComponent } from './task-form/task-form.component';
 
 @NgModule({
@@ -37,9 +38,11 @@ import { TaskFormComponent } from './task-form/task-form.component';
     TaskComponent,
     WelcomeNoteComponent,
     ListingFormComponent,
+    TaskFormComponent,
     FilterPipe,
-    TaskOrderingPipe,
-    TaskFormComponent
+    TaskOrderByDatePipe,
+    TaskOrderByStatusPipe
+    
   ],
   imports: [
     ReactiveFormsModule,

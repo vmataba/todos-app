@@ -3,6 +3,7 @@ export interface Task {
   description: string
   status: number
   listingId: number
+  created_at:string
 }
 
 export const TASK_STATUS_PENDING = 0
