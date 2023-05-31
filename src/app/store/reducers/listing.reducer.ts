@@ -20,7 +20,7 @@ import {
   updateLabel,
   updateSearchKeyWord,
   clearError,
-  setActive
+  setActive,
 } from '../actions/listing.action';
 import { state } from '@angular/animations';
 
@@ -29,26 +29,26 @@ export interface ListingState {
   loaded: boolean;
   label: Label | undefined;
   listings: Listing[];
-  activeListing?: Listing
+  activeListing?: Listing;
   error?: SystemError;
-  keyword: string
+  keyword: string;
 }
 
 const initialState = getStoredState('todos.listings', {
   loading: false,
   loaded: false,
   listings: [],
-  searchKeyword: ''
+  searchKeyword: '',
 });
 
 export const listingReducer = createReducer(
   initialState,
-  on(updateLabel, (state,{label}) => ({
+  on(updateLabel, (state, { label }) => ({
     ...state,
     loading: false,
     loaded: false,
     error: undefined,
-    label
+    label,
   })),
   on(load, (state) => ({
     ...state,
@@ -67,23 +67,20 @@ export const listingReducer = createReducer(
     ...state,
     loading: false,
     loaded: false,
-    error
+    error,
   })),
   on(addSuccess, (state, { listing }) => ({
     ...state,
     loading: false,
     loaded: true,
     error: undefined,
-    listings: [
-        ...state.listings,
-        listing
-    ]
+    listings: [...state.listings, listing],
   })),
   on(addFail, (state, { error }) => ({
     ...state,
     loading: false,
     loaded: false,
-    error
+    error,
   })),
   on(updateSuccess, (state, { listing }) => ({
     ...state,
@@ -91,9 +88,11 @@ export const listingReducer = createReducer(
     loaded: false,
     error: undefined,
     listings: [
-        ...state.listings.filter((existingListing:Listing) => existingListing.id != listing.id),
-        listing
-    ]
+      ...state.listings.filter(
+        (existingListing: Listing) => existingListing.id != listing.id
+      ),
+      listing,
+    ],
   })),
   on(updateFail, (state, { error }) => ({
     ...state,
@@ -107,8 +106,8 @@ export const listingReducer = createReducer(
     loaded: false,
     error: undefined,
     listings: [
-        ...state.listings.filter((listing:Listing) => listing.id != id)
-    ]
+      ...state.listings.filter((listing: Listing) => listing.id != id),
+    ],
   })),
   on(deleteListFail, (state, { error }) => ({
     ...state,
@@ -120,20 +119,26 @@ export const listingReducer = createReducer(
     ...state,
     loading: false,
     loaded: false,
-    keyword
+    keyword,
   })),
   on(clearError, (state) => ({
     ...state,
-    error: undefined
+    error: undefined,
   })),
   on(setActive, (state, { activeListing }) => ({
     ...state,
     loading: false,
     loaded: false,
-    activeListing
+    activeListing,
+    listings: [
+      ...state.listings.filter(
+        (listing: Listing) => listing.id != activeListing.id
+      ),
+      activeListing,
+    ],
   })),
   on(clearError, (state) => ({
     ...state,
-    error: undefined
-  })),
+    error: undefined,
+  }))
 );

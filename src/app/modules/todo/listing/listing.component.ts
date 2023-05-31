@@ -24,10 +24,13 @@ export class ListingComponent implements OnInit {
 
   inViewMode$: Observable<boolean | undefined> = of(this.inViewMode);
 
+  activeListing$: Observable<Listing | undefined>;
+
   archived: boolean = false;
 
   constructor(private store: Store) {
     this.tasks$ = of([]);
+    this.activeListing$ = store.select(fromListingSelector.getActiveListing);
   }
 
   ngOnInit(): void {
@@ -39,6 +42,12 @@ export class ListingComponent implements OnInit {
     this.inViewMode$ = this.store.select(fromListingSelector.getInViewMode);
     this.inViewMode$.subscribe((inViewMode) => {
       this.inViewMode = !inViewMode ? false : inViewMode;
+    });
+    this.activeListing$.subscribe((activeListing) => {
+      if (this.listing?.id != activeListing?.id) {
+        this.inViewMode = false;
+        this.inViewMode$ = of(false);
+      }
     });
   }
 
