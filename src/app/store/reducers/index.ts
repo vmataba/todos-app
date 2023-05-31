@@ -4,6 +4,7 @@ import {labelsReducer, LabelsState} from "./label.reducer";
 import { listingReducer, ListingState } from "./listing.reducer";
 import { taskReducer, TaskState } from "./task.reducer";
 import { AuthActionTypes } from "../actions/auth.action";
+import { layoutReducer, LayoutState } from "./layout.reducer";
 
 export const CACHED_APP_STATE_KEY = 'appState'
 
@@ -14,6 +15,7 @@ export interface TodosState {
 }
 
 export interface AppState {
+  layout: LayoutState,
   auth: AuthState,
   todos: TodosState
 }
@@ -25,6 +27,7 @@ export const todosReducer = combineReducers({
 })
 
 export const appReducers = combineReducers({
+  layout: layoutReducer,
   auth: authReducer,
   todos: todosReducer
 })

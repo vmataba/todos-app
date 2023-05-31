@@ -11,6 +11,7 @@ import {RouterModule} from "@angular/router";
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {HttpClientModule} from "@angular/common/http";
 import {appReducers, metaReducers} from "./store/reducers";
+import { LayoutModule } from './modules/layout/layout.module';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import {appReducers, metaReducers} from "./store/reducers";
     StoreModule.forRoot(appReducers, {metaReducers}),
     EffectsModule.forRoot([]),
     RoutingModule,
+    LayoutModule,
     AuthModule,
     TodoModule,
     RouterModule,

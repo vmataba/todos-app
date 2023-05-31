@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { HomeComponent } from './home/home.component';
-import { NavbarComponent } from './navbar/navbar.component';
+import { NavbarComponent } from '../layout/navbar/navbar.component';
 import { LabelsComponent } from './labels/labels.component';
 import { LabelComponent } from './label/label.component';
 import { LabelFormComponent } from './label-form/label-form.component';
@@ -25,6 +25,7 @@ import { FilterPipe } from 'src/app/common/pipes/filter.pipe';
 import { TaskOrderByDatePipe } from 'src/app/common/pipes/task-order-by-date.pipe';
 import { TaskOrderByStatusPipe } from 'src/app/common/pipes/task-order-by-status.pipe';
 import { TaskFormComponent } from './task-form/task-form.component';
+import { LayoutModule } from '../layout/layout.module';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { TaskFormComponent } from './task-form/task-form.component';
     EffectsModule.forFeature([LabelEffect, ListingEffect, TaskEffect]),
     CommonToolsModule,
     CommonModule,
+    LayoutModule
   ],
   providers: [LabelService, ListingService, TaskService],
 })

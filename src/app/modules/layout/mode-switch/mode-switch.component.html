@@ -1,0 +1,9 @@
+<div class="options">
+    <div class="light selected" (click)="switch(lightMode)" [class.selected]="(mode$ | async) == lightMode">
+        <i class="bi bi-sun"></i>
+    </div>
+    <div class="divider"></div>
+    <div class="dark" (click)="switch(darkMode)" [class.selected]="(mode$ | async) == darkMode">
+        <i class="bi bi-moon-fill"></i>
+    </div>
+</div>

@@ -1,0 +1,132 @@
+/* 
+.dark-mode .simple-navbar{
+    background-color: black !important;
+}
+
+
+.dark-mode .toast-header{
+    color: white !important;
+    background-color: black;
+}
+.dark-mode .toast-body{
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+}
+.dark-mode .btn-close{
+    color: white !important;
+}
+
+.dark-mode ul,
+.dark-mode li{
+    background-color: black;
+    color: white;
+}
+.dark-mode li{
+    border-bottom: 1px solid white;
+}
+
+.dark-mode .card{
+    background-color: black;
+    color: white;
+}
+.dark-mode *{
+
+} */
+
+/*
+
+Certainly! Here are a few examples of color palettes commonly used in dark mode designs:
+
+1. Monochromatic Grays:
+   - Background: #121212
+   - Text: #F5F5F5
+   - Accent: #808080
+
+2. Cool Tones:
+   - Background: #0E1426
+   - Text: #E6E6E6
+   - Accent: #3E8FBF
+
+3. Earthy Tones:
+   - Background: #262626
+   - Text: #DADADA
+   - Accent: #9E8358
+
+4. Blue Hues:
+   - Background: #0A0E1B
+   - Text: #E1E1E6
+   - Accent: #3B82F6
+
+5. Green Shades:
+   - Background: #1E2119
+   - Text: #E9F2DF
+   - Accent: #81B622
+
+6. Violet Palette:
+   - Background: #141428
+   - Text: #F0F0F7
+   - Accent: #A366FF
+
+Remember, these are just examples, and you should adapt the color palette to your specific design requirements, branding, and accessibility considerations. Additionally, consider using color contrast checkers or online tools to verify that your chosen color combinations meet the recommended contrast ratios for accessibility.
+
+*/
+:root {
+    --dark-mode-background-color: #262626;
+    --dark-mode-text-color: #E6E6E6;
+    --dark-mode-accent-color: #3E8FBF;
+    --dark-mode-container-color: #1E2119;
+}
+
+html, body {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.dark-mode {
+    height: 100%;
+    background-color: var(--dark-mode-background-color);
+    color: var(--dark-mode-text-color);
+}
+
+.dark-mode.text-success{
+    color: var(--dark-mode-text-color) !important;
+}
+
+
+.dark-mode button,
+.dark-mode input[type=text],
+.dark-mode .btn-close,
+.dark-mode .card,
+.dark-mode .toast,
+.dark-mode li,
+.dark-mode .simple-navbar,
+.dark-mode .toast-header {
+    background-color: var(--dark-mode-background-color) !important;
+    color: var(--dark-mode-text-color) !important;
+    border: none;
+}
+
+.dark-mode li {
+    border-bottom: 1px solid #E6E6E6;
+}
+
+.dark-mode button,
+.dark-mode .bi-plus {
+    color: var(--dark-mode-accent-color) !important;
+    font-weight: bold;
+}
+
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode h4,
+.dark-mode h5,
+.dark-mode h6,
+.dark-mode .text-muted,
+.dark-mode p.title,
+.dark-mode li.tex-success,
+.dark-mode li:hover {
+    color: var(--dark-mode-accent-color) !important;
+}
