@@ -100,10 +100,18 @@ html, body {
 }
 
 .dark-mode .options .divider {
-    background-color: var(--dark-mode-text-color) !important;
+    background-color: var(--dark-mode-accent-color) !important;
 }
 
+.dark-mode .options .light{
+    background-color: var(--dark-mode-text-color);
+    color: var(--dark-mode-background-color);
+}
 .dark-mode .options .light,
+.dark-mode .options .dark
+{
+   border: 1px solid var(--dark-mode-accent-color) !important
+}
 .dark-mode .options .dark {
     border: 1px solid var(--dark-mode-text-color);
 }
@@ -150,10 +158,6 @@ html, body {
 
 .dark-mode li {
     border-bottom: 1px solid var(--dark-mode-accent-color);
-}
-
-.dark-mode .modal {
-    border: 1px solid var(--dark-mode-accent-color)
 }
 
 .dark-mode .modal-header,
