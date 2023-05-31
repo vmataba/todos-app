@@ -6,7 +6,7 @@
       <div *ngIf="tasks.length else noTasks">
         <ul class="list-group">
 
-          <li class="list-group-item" *ngFor="let task of ((tasks |taskOrderByDate ) | taskOrderByStatus).slice(0,3)">
+          <li class="list-group-item" *ngFor="let task of ((tasks |taskOrderByDate ) | taskOrderByStatus).slice(0,5)">
             <app-task [task]="task"></app-task>
           </li>
           <div class="task-form">

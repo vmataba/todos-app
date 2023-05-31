@@ -32,6 +32,13 @@ export class TaskFormComponent {
     return this.form.get('description');
   }
 
+  reset(){
+    this.form.patchValue({
+      ...this.form.value,
+      description: ''
+    })
+  }
+
   save() {
     if (this.form.invalid){
       return;
@@ -48,6 +55,7 @@ export class TaskFormComponent {
           },
         })
       );
+      this.reset()
       return;
     }
     this.store.dispatch(
@@ -59,5 +67,6 @@ export class TaskFormComponent {
         },
       })
     );
+    this.reset()
   }
 }
