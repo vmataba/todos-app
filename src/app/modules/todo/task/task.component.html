@@ -1,15 +1,19 @@
-<div class="task" (mouseover)="toggleDeleteOption()" (mouseout)="toggleDeleteOption()">
-  <p class="description" *ngIf="!completed"> {{task?.description}}</p>
-  <p class="description" *ngIf="completed"> 
+<div *ngIf="!inUpdateMode else form" class="task" (mouseover)="toggleDeleteOption()" (mouseout)="toggleDeleteOption()">
+  <p class="description" *ngIf="!completed" (click)="toggleInUpdateMode()"> {{task?.description}}</p>
+  <p class="description" *ngIf="completed" (click)="toggleInUpdateMode()">
     <del>{{task?.description}}</del>
   </p>
-<div class="icon-buttons">
-  <span class="status">
-    <i class="bi bi-check text-success" *ngIf="completed" (click)="updateStatus(0)"></i>
-    <i class="bi bi-clock-history text-warning" *ngIf="!completed" (click)="updateStatus(1)"></i>
-  </span>
-  <span class="delete-icon" [hidden]="!showDeleteOption">
-    <i class="bi bi-x text-danger" (click)="deleteTask()"></i>
-  </span>
+  <div class="icon-buttons">
+    <span class="status">
+      <i class="bi bi-check text-success" *ngIf="completed" (click)="updateStatus(0)"></i>
+      <i class="bi bi-clock-history text-warning" *ngIf="!completed" (click)="updateStatus(1)"></i>
+    </span>
+    <span class="delete-icon" [hidden]="!showDeleteOption">
+      <i class="bi bi-trash text-danger" (click)="deleteTask()"></i>
+    </span>
+  </div>
 </div>
-</div>
+
+<ng-template #form>
+  <app-task-form [task]="task" [listingId]="task?.listingId"></app-task-form>
+</ng-template>

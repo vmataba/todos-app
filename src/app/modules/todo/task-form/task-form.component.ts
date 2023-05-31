@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { Observable, of } from 'rxjs';
@@ -13,19 +13,37 @@ import * as fromListingActions from 'src/app/store/actions/listing.action';
   templateUrl: './task-form.component.html',
   styleUrls: ['./task-form.component.css'],
 })
-export class TaskFormComponent {
+export class TaskFormComponent implements OnInit,AfterViewInit {
+
   form: FormGroup;
 
   @Input() task: Task | undefined;
 
   @Input() listingId: number | undefined;
 
+  @ViewChild('description') descriptionInput: ElementRef | undefined
+
 
   constructor(private fb: FormBuilder, private store: Store) {
     this.form = fb.group({
-      id: [this.task?.id],
-      description: [this.task?.description, Validators.required],
+      id: [''],
+      description: ['', Validators.required],
     });
+  }
+
+  ngOnInit(): void {
+      if (this.task){
+        this.form.patchValue({
+          ...this.task
+        })
+      }
+  }
+
+  ngAfterViewInit(): void {
+      if (!this.descriptionInput){
+        return;
+      }
+      this.descriptionInput.nativeElement.focus()
   }
 
   get description() {

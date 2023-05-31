@@ -17,6 +17,8 @@ export class TaskComponent implements OnInit{
 
   showDeleteOption = false
 
+  inUpdateMode = false
+
   constructor(private store: Store){}
 
   ngOnInit(): void {
@@ -44,6 +46,10 @@ export class TaskComponent implements OnInit{
       return;
     }
     this.store.dispatch(fromTakActions.deleteTask({id: this.task.id}))
+  }
+
+  toggleInUpdateMode(){
+    this.inUpdateMode = !this.inUpdateMode
   }
   
 }

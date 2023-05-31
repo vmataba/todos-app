@@ -16,3 +16,6 @@ input:hover{
     border-right: none;
     border-top: none;
 }
+input.borderless{
+    border: none !important;
+}
