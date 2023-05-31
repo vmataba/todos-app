@@ -8,9 +8,11 @@ input{
     height: 30px;
     border-left: none;
     border-right: none;
+    border-top: none;
 }
 input:hover{
-    border: 1px solid #9E9E9E;
+    border:initial;
     border-left: none;
     border-right: none;
+    border-top: none;
 }
