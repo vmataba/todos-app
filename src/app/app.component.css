@@ -185,3 +185,22 @@ html, body {
 .dark-mode li:hover {
     color: var(--dark-mode-accent-color) !important;
 }
+
+.dark-mode .navbar a{
+    color: var(--dark-mode-text-color);
+}
+.dark-mode .navbar li{
+    border: none;
+}
+.dark-mode .dropdown-menu{
+    background-color: var(--dark-mode-background-color);
+}
+.dark-mode a:hover{
+    color: var(--dark-mode-accent-color) !important;
+    background-color: var(--dark-mode-background-color) !important
+} 
+
+.dark-mode .navbar-toggler{
+    background-color: var(--dark-mode-accent-color) !important;
+    color: var(--dark-mode-text-color) !important;
+}

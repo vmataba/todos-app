@@ -17,3 +17,5 @@ export const getError = createSelector(getAuthState, state => state.error)
 export const getErrorMessage = createSelector(getError, (error:any) => error?.message)
 
 export const getFirstNameLetter = createSelector(getFirstName,firstName => firstName?.charAt(0))
+
+export const getEmail = createSelector(getUser,user => user?.email)
