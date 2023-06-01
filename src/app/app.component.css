@@ -225,3 +225,8 @@ html, body {
     color: var(--dark-mode-accent-color) !important;
     font-weight: bold;
 }
+
+.dark-mode .show-on-small{
+    background-color: var(--dark-mode-accent-color) !important;
+    color: var(--dark-mode-text-color) !important;
+}

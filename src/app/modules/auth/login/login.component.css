@@ -40,18 +40,49 @@
   color: white;
 }
 
+.show-on-small {
+  display: none;
+  background-color: #1e88e5;
+  margin-bottom: 10px;
+  width: 100%;
+}
+.show-on-small .heading{
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  padding: 20px;
+  margin-top: -100px;
+}
+.show-on-small .list-group-item{
+  font-size: .8em;
+}
+
 @media screen and (max-width: 760px) {
+  .container-fluid{
+    padding: 0
+  }
+  form{
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+  .show-on-small {
+    display: block;
+  }
+
   .welcome-note h1 {
     font-size: 2em;
   }
+
   .welcome-note .final-text {
     font-size: 1em;
     font-weight: bold;
   }
-  .welcome-note .instructions{
+
+  .welcome-note .instructions {
     font-size: 1em;
   }
-  .welcome-note{
+
+  .welcome-note {
     display: none;
   }
 }
@@ -70,7 +101,7 @@
 }
 
 .welcome-note p,
-.welcome-note h1{
+.welcome-note h1 {
   margin-left: 10px;
   margin-right: 10px;
 }
@@ -80,7 +111,20 @@
   color: white;
 }
 
-.login-form{
+.login-form {
   align-items: center;
   margin: 100px auto;
+}
+
+.form-control {
+  border-left: none;
+  border-right: none;
+  border-top: none;
+}
+
+.form-control:focus,
+.form-control:active {
+  border-color: 0;
+  outline: none;
+  box-shadow: none;
 }
