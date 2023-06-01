@@ -103,15 +103,16 @@ html, body {
     background-color: var(--dark-mode-accent-color) !important;
 }
 
-.dark-mode .options .light{
+.dark-mode .options .light {
     background-color: var(--dark-mode-text-color);
     color: var(--dark-mode-background-color);
 }
+
 .dark-mode .options .light,
-.dark-mode .options .dark
-{
-   border: 1px solid var(--dark-mode-accent-color) !important
+.dark-mode .options .dark {
+    border: 1px solid var(--dark-mode-accent-color) !important
 }
+
 .dark-mode .options .dark {
     border: 1px solid var(--dark-mode-text-color);
 }
@@ -120,12 +121,12 @@ html, body {
     border-bottom: 1px solid var(--dark-mode-accent-color) !important;
 }
 
-.dark-mode .profile-image{
+.dark-mode .profile-image {
     background-color: var(--dark-mode-accent-color) !important;
     color: var(--dark-mode-text-color) !important;
 }
 
-.dark-mode .navbar-brand{
+.dark-mode .navbar-brand {
     color: var(--dark-mode-text-color) !important;
 }
 
@@ -173,12 +174,6 @@ html, body {
     font-weight: bold;
 }
 
-.dark-mode h1,
-.dark-mode h2,
-.dark-mode h3,
-.dark-mode h4,
-.dark-mode h5,
-.dark-mode h6,
 .dark-mode .text-muted,
 .dark-mode p.title,
 .dark-mode li.tex-success,
@@ -186,21 +181,47 @@ html, body {
     color: var(--dark-mode-accent-color) !important;
 }
 
-.dark-mode .navbar a{
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode h4,
+.dark-mode h5,
+.dark-mode h6 {
+    color: var(--dark-mode-text-color);
+    font-weight: bold;
+}
+
+.dark-mode .login .welcome-note {
+    background-color: var(--dark-mode-accent-color) !important;
+}
+
+.dark-mode .navbar a {
     color: var(--dark-mode-text-color);
 }
-.dark-mode .navbar li{
+
+.dark-mode .navbar li {
     border: none;
 }
-.dark-mode .dropdown-menu{
+
+.dark-mode .dropdown-menu {
     background-color: var(--dark-mode-background-color);
 }
-.dark-mode a:hover{
+
+.dark-mode a:hover {
     color: var(--dark-mode-accent-color) !important;
     background-color: var(--dark-mode-background-color) !important
-} 
+}
 
-.dark-mode .navbar-toggler{
+.dark-mode .navbar-toggler {
     background-color: var(--dark-mode-accent-color) !important;
     color: var(--dark-mode-text-color) !important;
+}
+
+.dark-mode .login input,
+.dark-mode .login input:hover {
+    background-color: #ccc !important;
+    border: none;
+    outline: none;
+    color: var(--dark-mode-accent-color) !important;
+    font-weight: bold;
 }
