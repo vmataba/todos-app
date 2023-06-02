@@ -9,12 +9,12 @@
   <div class="label-form" *ngIf="showForm">
     <app-label-form></app-label-form>
   </div>
+  <div *ngIf="loading$ | async" class="text-center">Refreshing ...</div>
   <ul class="list-group" *ngIf="(labels$ | async)?.length else noLabels">
     <li class="list-group-item" *ngFor="let label of labels$ | async">
       <app-label [label]="label"></app-label>
     </li>
   </ul>
-  <div *ngIf="loading$ | async" class="loader">Loading ...</div>
   <ng-container *ngIf="!(labels$ | async)?.length">
     <ng-container *ngIf="error$ | async as error">
       <app-error-note [error]="error"></app-error-note>

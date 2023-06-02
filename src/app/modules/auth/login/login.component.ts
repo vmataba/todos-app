@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Observable} from "rxjs";
 import {Store} from "@ngrx/store";
-import {login} from "../../../store/actions/auth.action";
+import {clearError, login} from "../../../store/actions/auth.action";
 import {
   getError,
   getErrorMessage,
@@ -80,5 +80,9 @@ export class LoginComponent implements OnInit {
       return;
     }
     this.showSignupForm = !this.showSignupForm
+  }
+
+  clearErorr(){
+    this.store.dispatch(clearError())
   }
 }

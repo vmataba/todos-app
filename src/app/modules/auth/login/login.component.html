@@ -35,7 +35,7 @@
           <div class="form-group">
             <label>Username</label>
             <input formControlName="username" placeholder="Enter your username" type="text" class="form-control"
-              [class.is-invalid]="username?.touched && username?.hasError('required')" />
+              [class.is-invalid]="username?.touched && username?.hasError('required')" (focus)="clearErorr()" (keyup)="clearErorr()" />
             <small class="text-danger" *ngIf="username?.touched && username?.hasError('required')">
               Username is required
             </small>
@@ -43,7 +43,7 @@
           <div class="form-group">
             <label>Password</label>
             <input formControlName="password" placeholder="Enter your password" type="password" class="form-control"
-              [class.is-invalid]="password?.touched && password?.hasError('required')" />
+              [class.is-invalid]="password?.touched && password?.hasError('required')" (focus)="clearErorr()" (keyup)="clearErorr()" />
             <div class="errors">
               <small class="text-danger" *ngIf="password?.touched && password?.hasError('required')">
                 Password is required

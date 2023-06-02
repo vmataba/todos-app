@@ -2,6 +2,7 @@ import { SystemError } from '../models/system-error.model';
 import { User } from '../models/user.model';
 import { createReducer, on } from '@ngrx/store';
 import {
+  clearError,
   login,
   loginFail,
   loginSuccess,
@@ -75,5 +76,12 @@ export const authReducer = createReducer(
     loaded: false,
     isGuest: true,
     error,
+  })),
+  on(clearError, (state) => ({
+    ...state,
+    loading: false,
+    loaded: false,
+    isGuest: true,
+    error:undefined,
   }))
 );
