@@ -7,6 +7,8 @@ import {Observable} from "rxjs";
 import {SystemError} from "../../../store/models/system-error.model";
 import {getError} from "../../../store/selectors/label.selector";
 import {Label} from "../../../store/models/label.model";
+import { getMode } from 'src/app/store/selectors/layout.selector';
+import { MODE_DARK, MODE_LIGHT } from 'src/app/store/models/layout.model';
 
 @Component({
   selector: 'app-label-form',
@@ -23,6 +25,10 @@ export class LabelFormComponent implements OnInit, OnDestroy {
 
   @Input() label: Label | undefined
 
+  modeDark = MODE_DARK
+
+  mode$: Observable<string>
+
   constructor(private fb: FormBuilder, private store: Store) {
     this.form = fb.group({
       id: [this.label?.id],
@@ -36,6 +42,8 @@ export class LabelFormComponent implements OnInit, OnDestroy {
     })
 
     this.error$ = store.select(getError)
+
+    this.mode$ = store.select(getMode)
   }
 
   ngOnInit() {

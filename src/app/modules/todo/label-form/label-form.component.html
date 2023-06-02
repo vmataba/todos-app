@@ -1,6 +1,6 @@
 <form [formGroup]="form" (ngSubmit)="save()" class="todo-form">
   <div class="form-input">
-    <input formControlName="name" placeholder="Add new label">
+    <input formControlName="name" class="standard-input" [class.input-dark]="(mode$ | async) == modeDark" placeholder="Add new label">
   </div>
   <div class="submit-button">
     <button type="submit" class="mt-2" [disabled]="form.invalid">

@@ -56,3 +56,8 @@ i.bi {
   border-radius: 0;
   border: 1px solid #cccc;
 }
+
+ .input-dark{
+  background-color: var(--dark-mode-background-color);
+  color: var(--dark-mode-text-color)
+}
