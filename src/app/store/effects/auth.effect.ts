@@ -3,6 +3,7 @@ import {Actions, createEffect, ofType} from "@ngrx/effects";
 import {AuthService} from "../../services/auth.service";
 import {AuthActionTypes, loginFail, loginSuccess, signupFail, signupSuccess} from "../actions/auth.action";
 import {catchError, map, mergeMap, of} from "rxjs";
+import { translate } from "src/app/common/helpers/error.helper";
 
 
 @Injectable()
@@ -15,8 +16,7 @@ export class AuthEffect {
     mergeMap((action: any) => this.service.signup(action.user).pipe(
         map(user => signupSuccess({user})),
         catchError(response => {
-          const {error} = response;
-          return of(signupFail({error}))
+          return of(signupFail({error:translate(response)}))
         })
       )
     )
@@ -27,8 +27,7 @@ export class AuthEffect {
     mergeMap((action: any) => this.service.login(action.credentials).pipe(
         map(user => loginSuccess({user})),
         catchError(response => {
-          const {error} = response;
-          return of(loginFail({error}))
+          return of(loginFail({error:translate(response)}))
         })
       )
     )

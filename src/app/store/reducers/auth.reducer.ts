@@ -67,7 +67,7 @@ export const authReducer = createReducer(
     ...state,
     loading: false,
     loaded: true,
-    isGuest: false,
+    isGuest: true,
     user,
   })),
   on(signupFail, (state, { error }) => ({

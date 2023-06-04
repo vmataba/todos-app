@@ -38,7 +38,7 @@ const initialState = getStoredState('todos.listings', {
   loading: false,
   loaded: false,
   listings: [],
-  searchKeyword: '',
+  keyword: '',
 });
 
 export const listingReducer = createReducer(

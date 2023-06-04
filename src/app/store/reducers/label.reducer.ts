@@ -6,6 +6,7 @@ import {
   add,
   addFail,
   addSuccess,
+  deleteFail,
   deleteLabel,
   deleteSuccess,
   load,
@@ -83,7 +84,7 @@ export const labelsReducer = createReducer(
     loaded: false,
     loading: false,
   })),
-  on(updateLabel,state => ({...state,loading:true})),
+  on(updateLabel, (state) => ({ ...state, loading: true })),
   on(updateSuccess, (state, { label }) => {
     let activeLabel = state.activeLabel;
     if (activeLabel?.id == label.id) {
@@ -124,6 +125,12 @@ export const labelsReducer = createReducer(
       activeLabel,
     };
   }),
+  on(deleteFail, (state, { error }) => ({
+    ...state,
+    loaded: false,
+    loading: false,
+    error,
+  })),
   on(setActive, (state, { id }) => ({
     ...state,
     activeLabel: state.labels.filter((label) => label.id == id)?.at(0),
