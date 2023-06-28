@@ -1,5 +1,5 @@
 ## In Dark
-![Dark Mode](src/assets/screenshots/todos-dark-mode.jpeg)
+![Dark Mode](src/assets/screenshots/todos-dark-mode.png)
 
 ## In Light
-![Light Mode](src/assets/screenshots/todos-light-mode.jpeg)
+![Light Mode](src/assets/screenshots/todos-light-mode.png)
