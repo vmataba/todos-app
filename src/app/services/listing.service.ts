@@ -13,18 +13,34 @@ export class ListingService {
   endPoint = environment.apiUrl
 
   load(labelId: number) {
-    return this.httpClient.get<Listing[]>(`${this.endPoint}/api/listings/${labelId}`)
+    return this.httpClient.get<Listing[]>(`${this.endPoint}/api/listings/${labelId}`,{
+      headers: {
+        'Authorization': 'Basic '+sessionStorage.getItem('auth')
+      }
+    })
   }
 
   add(labelId: number, listing: Listing) {
-    return this.httpClient.post<Listing>(`${this.endPoint}/api/listings/${labelId}`, listing)
+    return this.httpClient.post<Listing>(`${this.endPoint}/api/listings/${labelId}`, listing,{
+      headers: {
+        'Authorization': 'Basic '+sessionStorage.getItem('auth')
+      }
+    })
   }
 
   update(id: number, listing: Listing) {
-    return this.httpClient.put<Listing>(`${this.endPoint}/api/listings/${id}`, listing)
+    return this.httpClient.put<Listing>(`${this.endPoint}/api/listings/${id}`, listing,{
+      headers: {
+        'Authorization': 'Basic '+sessionStorage.getItem('auth')
+      }
+    })
   }
 
   deleteListing(id: number) {
-    return this.httpClient.delete<number>(`${this.endPoint}/api/listings/${id}`)
+    return this.httpClient.delete<number>(`${this.endPoint}/api/listings/${id}`,{
+      headers: {
+        'Authorization': 'Basic '+sessionStorage.getItem('auth')
+      }
+    })
   }
 }

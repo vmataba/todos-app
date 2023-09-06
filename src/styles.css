@@ -5,19 +5,13 @@
   text-align: right;
 }
 
-@font-face {
-  font-face-name: Poppins;
-  font-family: Poppins;
-  src: url("~src/assets/fonts/poppins/Poppins-Light.ttf");
-}
-@font-face {
-  font-face-name: Sen;
-  font-family: Sen;
-  src: url("~src/assets/fonts/sen/Sen-Regular.ttf");
-}
-
-body {
-  font-family: Sen, serif;
+:host, * {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 14px;
+  color: #333;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .list-group,

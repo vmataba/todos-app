@@ -30,18 +30,25 @@ const initialState = getStoredState('auth', {
 export const authReducer = createReducer(
   initialState,
 
-  on(login, (state, { credentials }) => ({
-    ...state,
-    loading: true,
-    loaded: false,
-  })),
-  on(loginSuccess, (state, { user }) => ({
-    ...state,
-    loading: false,
-    loaded: true,
-    user,
-    isGuest: false,
-  })),
+  on(login, (state, { credentials }) => {
+    sessionStorage.setItem('token',btoa(credentials.password))
+    return {
+      ...state,
+      loading: true,
+      loaded: false,
+    }
+  }),
+  on(loginSuccess, (state, { user }) => {
+    const token =  btoa(user.email+':'+atob((sessionStorage.getItem('token') as string)))
+    sessionStorage.setItem('auth',token)
+    return {
+      ...state,
+      loading: false,
+      loaded: true,
+      user,
+      isGuest: false,
+    }
+  }),
   on(loginFail, (state, { error }) => ({
     ...state,
     loading: false,
@@ -49,6 +56,7 @@ export const authReducer = createReducer(
     error,
   })),
   on(logout, (state) => {
+    sessionStorage.removeItem('auth')
     return {
       ...state,
       isGuest: true,
