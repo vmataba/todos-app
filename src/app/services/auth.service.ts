@@ -17,11 +17,7 @@ export class AuthService {
   }
 
   login(credentials: Credential) {
-    return this.httpClient.post<User>(`${this.endPoint}/api/users/login`,null,{
-      headers: {
-        'Authorization': 'Basic '+btoa(credentials.username+':'+credentials.password)
-      }
-    })
+    return this.httpClient.post<User>(`${this.endPoint}/api/users/login`,btoa(credentials.username+':'+credentials.password))
   }
 
 }

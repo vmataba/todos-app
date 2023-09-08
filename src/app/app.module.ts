@@ -9,9 +9,10 @@ import {AuthModule} from "./modules/auth/auth.module";
 import {TodoModule} from "./modules/todo/todo.module";
 import {RouterModule} from "@angular/router";
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {appReducers, metaReducers} from "./store/reducers";
 import { LayoutModule } from './modules/layout/layout.module';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,13 @@ import { LayoutModule } from './modules/layout/layout.module';
     StoreDevtoolsModule.instrument({maxAge: 25, logOnly: !isDevMode()}),
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    /*{
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    }*/
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
