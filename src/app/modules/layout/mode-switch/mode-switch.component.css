@@ -17,15 +17,23 @@
     cursor: pointer;
     height: 50%;
 }
-.selected{
+
+.selected i {
+    color: white;
+    font-weight: bold;
+}
+
+.selected {
     background-color: black !important;
     color: white !important;
 }
+
 @media screen and (max-width: 760px) {
-    .options{
+    .options {
         height: 75px;
         margin-top: 75px;
     }
+
     .light, .dark {
         text-align: center;
         padding: 5px;
