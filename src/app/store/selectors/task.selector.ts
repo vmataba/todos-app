@@ -9,7 +9,7 @@ export const getTaskState = createSelector(
 
 export function getTasks(listingId?: number) {
   return createSelector(getTaskState, (state) =>
-    [...state.tasks.filter((task: Task) => task.listingId == listingId)].sort(
+    [...state.tasks].filter((task: Task) => task.listingId == listingId).sort(
       (a, b) => {
         const firstDescription = a.description.toLowerCase()
         const secondDescription = b.description.toLowerCase()

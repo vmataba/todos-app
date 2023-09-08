@@ -38,6 +38,7 @@ export class ListingComponent implements OnInit {
       return;
     }
     this.tasks$ = this.store.select(fromTaskSelector.getTasks(this.listing.id));
+    this.tasks$.subscribe(tasks => console.log(tasks))
     this.archived = this.listing.status == LISTING_STATUS_ARCHIVED;
     this.inViewMode$ = this.store.select(fromListingSelector.getInViewMode);
     this.inViewMode$.subscribe((inViewMode) => {
