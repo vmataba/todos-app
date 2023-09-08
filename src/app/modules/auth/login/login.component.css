@@ -117,9 +117,7 @@
 }
 
 .form-control {
-  border-left: none;
-  border-right: none;
-  border-top: none;
+ 
 }
 
 .form-control:focus,
@@ -131,4 +129,9 @@
 
 .instructions li {
   font-size: 1.5rem;
+}
+
+form{
+  box-shadow: 2px 2px 2px 2px #ccc;
+  padding: 20px;
 }

@@ -26,12 +26,13 @@
             <div *ngTemplateOutlet="instructions"></div>
           </div>
         </div>
-        <h1 class="text-center">Login</h1>
+  
         <div class="alert alert-success" *ngIf="(firstName$ | async) && !(isGuest$ | async)">
           Congratulations <b>{{firstName$ | async}}</b>, your account has been successfully created, please login to
           proceed
         </div>
         <form [formGroup]="form" (ngSubmit)="login()">
+          <h1 class="text-center">Login</h1>
           <div class="form-group">
             <label>Username</label>
             <input formControlName="username" placeholder="Enter your username" type="text" class="form-control"
