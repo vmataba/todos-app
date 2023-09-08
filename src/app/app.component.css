@@ -73,7 +73,7 @@ Remember, these are just examples, and you should adapt the color palette to you
 */
 :root {
     --dark-mode-background-color: #0E1426;
-    --dark-mode-text-color: #E6E6E6;
+    --dark-mode-text-color: white;
     --dark-mode-accent-color: #3E8FBF;
     --dark-mode-container-color: #A366FF;
 }
@@ -226,7 +226,15 @@ html, body {
     font-weight: bold;
 }
 
-.dark-mode .show-on-small{
+.dark-mode .show-on-small {
     background-color: var(--dark-mode-accent-color) !important;
     color: var(--dark-mode-text-color) !important;
 }
+
+.dark-mode i,
+.dark-mode .label .title,
+.dark-mode label,
+.dark-mode .modal {
+    color: var(--dark-mode-text-color);
+}
+

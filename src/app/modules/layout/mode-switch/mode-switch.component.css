@@ -22,6 +22,9 @@
     color: white;
     font-weight: bold;
 }
+:not(.selected i){
+    color: black;
+}
 
 .selected {
     background-color: black !important;
